@@ -1,0 +1,32 @@
+def isAnagram(s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        #Declare two dictionaries one for each string
+        dictionary = {}
+
+
+        #Loop through each string and add the characters to the dictionary with the count of the character
+        for char in s:
+            if char in dictionary:
+               dictionary[char] = dictionary[char] + 1
+            else:
+                dictionary[char] = 1
+
+        for char in t:
+            if char not in dictionary:
+                return False
+            else:
+                dictionary[char] = dictionary[char] - 1
+
+        for char in dictionary:
+            if dictionary[char] != 0:
+                return False
+          
+
+def main():
+  print(isAnagram("dgqztusjuu", "dqugjzutsu"))
+
+main()
